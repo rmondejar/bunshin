@@ -1,0 +1,1 @@
+java -cp ../classes/;../lib/pastry.jar;../lib/jug.jar;../lib/jdom.jar;../lib/xstream.jar %*

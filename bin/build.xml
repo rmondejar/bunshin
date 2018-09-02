@@ -1,0 +1,75 @@
+<project name="Bunshin2" default="main" basedir=".">
+
+  <path id="base.path">
+      <pathelement path="${classpath}"/>
+      <fileset dir="../lib">
+        <include name="**/*.jar"/>
+      </fileset>
+       <fileset dir="../classes">
+        <include name="**/*.classes"/>
+      </fileset>
+    </path>
+
+
+
+ <!-- ======================== Copy static files ========================= -->
+	<target name="prepare">
+		<!-- Create destination directories -->
+		<mkdir dir="../classes"/>
+	</target>
+
+
+    <target name="compile" depends="prepare">
+	    <javac srcdir="../src"
+   	        deprecation="true"
+   	        destdir="../classes"
+   	        debug = "true"
+                debuglevel="lines,vars,source">
+   	    <classpath refid="base.path"/>      
+    	</javac>      
+	</target>
+
+	<target name="clean">
+	    <delete dir="../classes"/>
+	   <delete file="../lib/bunshin.jar"/>
+  	</target>
+  
+	<target name="dist"> 
+	    <jar jarfile="../lib/bunshin.jar"
+   	      basedir="../classes" >
+   		 </jar>
+  	</target>
+
+    <target name="api">
+	<javadoc
+           destdir="../docs/api"
+           author="true"
+           version="true"
+           use="true"
+           verbose="false"
+           windowtitle="Bunshin">
+	   <classpath refid="base.path"/>
+ 	   <fileset dir="../src" defaultexcludes="yes">
+      			<include name="bunshin/**/*.java" />      	              
+      			<exclude name="bunshin/test/**"/>
+    		</fileset>
+  		</javadoc>
+  	</target>
+	
+  <target name="all" depends="clean,prepare,compile,dist"/>
+  <target name="main" depends="all"/>
+
+
+  <!-- =============================== Help =============================== -->
+  <target name="targets">
+    <echo message=""/>
+    <echo message="ANT build targets for Bunshin"/>
+    <echo message=""/>
+    <echo message="The following targets are available:"/>
+    <echo message="  all                  Clean, then create distribution"/>
+    <echo message="  clean                Clean build and dist directories"/>
+    <echo message="  api                  Create the API with JavaDoc"/>
+    <echo message="  dist                 Create distribution"/>
+  </target>
+
+</project>

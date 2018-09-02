@@ -1,0 +1,1 @@
+java -cp ../lib/bunshin.jar:../lib/pastry.jar bunshin.test.BunshinTest 1

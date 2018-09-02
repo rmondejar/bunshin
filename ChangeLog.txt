@@ -1,0 +1,94 @@
+* Version 3.2
+
+- Problems with isAlive / Update Pastry mechanisms -> PingMessage
+						   -> Node Status Information
+* Version 3.1
+
+- Replication / XMLStorage bug fixed (load context)
+
+
+* Version 3.0
+
+- Java 6 and Windows Vista capable
+- Message dispacher optimized
+- Lightweight measures :
+ *  Reduced API --> i.e. deleted "field" methods
+ *  Reduced "non-used" funcionalities --> i.e. url or links.
+ *  DiskStorage --> Only XMLStorage (using real disk access). 
+- Override in put message configurable parameter
+- Tested in Grid'5000 platform
+
+
+* Verion 2.3
+
+General -> Updated to FreePastry 2.0 :
+         	- Nat
+         	- Raw Messaging
+
+BunshinImpl -> Bug in removeSecure() method (Detected by Bill Mccormick)
+
+* Verion 2.2_04
+
+- Code updates :
+
+BunshinConnection -> Updated to FreePastry 1.4.4
+
+- Bugs fixed :
+
+BunshinImpl -> Replica in old-owner node to prevent the Churn case.
+XMLStorage -> Problem chaging context directories
+
+
+* Verion 2.2_02
+
+- Code updates :
+
+BunshinConnection -> Updated to FreePastry 1.4.3_02
+
+- Bugs fixed :
+
+BunshinConnection/BunshinSearch -> Synchronism problems in getListeners  (Detected by Reinout van Schouwen and Solved by Michel Oey)
+
+
+* Verion 2.2
+
+- Code updates :
+
+New Storage Class : XMLStorage (DiskStorage + XStream + JDOM)
+
+BunshinSearch : Remove all references of all keywords using null or "" as first argument in remove method
+
+BunshinSearch : Propierties changed by Hashtable in Index objects
+
+
+* Verion 2.1_01
+
+- Code updates :
+
+BunshinConnection -> getBunshinApp()
+
+- Bugs fixed :
+
+RemoveMessage -> Not value for source in the constructor  (Detected by Reinout van Schouwen)
+
+
+* Version 2.1
+
+- Refactoring :
+
+bunshin.Bunshin*Client -> bunshin.listeners.Bunshin*Client
+bunshin.RemoteListeners -> bunshin.listeners.BunshinNotifyClient
+
+- Bugs fixed :
+
+ResultSortedQueue -> Item (Detected by Reinout van Schouwen)
+
+- Code updates :
+
+getLocal/Secure methods
+remove/Secure with ack/listener
+BunshinConnection -> New Pastry Connection Style
+
+- Others:
+
+bunshin.propierties updated

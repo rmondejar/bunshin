@@ -1,0 +1,1 @@
+java -cp ../lib/bunshin.jar:../lib/pastry.jar:../lib/jug.jar bunshin.test.BunshinPlanetLabTest2 100

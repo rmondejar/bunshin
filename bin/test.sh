@@ -1,0 +1,1 @@
+java  -classpath ../lib/bunshin.jar:../lib/junit.jar:../lib/pastry.jar:. junit.awtui.TestRunner bunshin.test.SimpleTest
